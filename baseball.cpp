@@ -9,19 +9,20 @@ int main(){
     int iNumber[9];
     for(int i = 0; i < 9; ++i)
     {
-        iNumber[i];
+        iNumber[i] = i + 1;
     }
 
     // suffle
     int iTemp, idx1, idx2;
     for(int i = 0; i < 100; ++i)
     {
-        idx1 = rand()% 9 + 1;
-        idx2 = rand()% 9 + 1;
-    }
+        idx1 = rand()% 9;
+        idx2 = rand()% 9;
+    
     iTemp = iNumber[idx1];
     iNumber[idx1] = iNumber[idx2];
     iNumber[idx2] = iTemp;
+    }
 
     // 일단 출력먼저 해보고 잘되면 ***로 출력 변경
     cout << iNumber[0] << iNumber[1] << iNumber[2] << endl;
@@ -53,8 +54,37 @@ int main(){
             cout << "0보다 작거나 9보다 큰 수를 입력할 수 없습니다";
             continue;
         }
-    }
-    
 
+        int iStrike, iBall = 0;
+
+        for(int i = 0; i < 3; ++i){
+            for(int j = 0; j < 3; ++j)
+            {
+                if(iPlayer[i]==iNumber[j]){
+                    if(i==j)
+                    {
+                        ++iStrike;
+                    }
+                    else
+                    {
+                        ++iBall;
+                    }
+                }
+            }
+        }
+
+        if(iStrike==0 && iBall ==0)
+        {
+            cout << " Out " << endl;
+        }
+        else if(iStrike == 3)
+        {
+            cout << " 모든 숫자를 맞췄습니다" << endl;
+        }
+        else
+        {
+            cout << iStrike << " strike " << iBall << " Ball " << endl;
+        }
+    }
 
 }
