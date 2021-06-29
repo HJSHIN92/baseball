@@ -26,11 +26,12 @@ int main(){
 
     // 일단 출력먼저 해보고 잘되면 ***로 출력 변경
     cout << iNumber[0] << iNumber[1] << iNumber[2] << endl;
-
     // 랜덤값이 정해졌으니 무한루프 안에서 문제풀이
     while (true)
     {
-        int iPlayer[3];
+    int iStrike, iBall = 0;
+    int iPlayer[3];
+
 
         cout << " 1부터 9까지의 숫자를 입력하세요." << endl;
         cin >> iPlayer[0] >> iPlayer[1] >> iPlayer[2];
@@ -55,7 +56,7 @@ int main(){
             continue;
         }
 
-        int iStrike, iBall = 0;
+        iStrike = iBall = 0;
 
         for(int i = 0; i < 3; ++i){
             for(int j = 0; j < 3; ++j)
@@ -80,6 +81,7 @@ int main(){
         else if(iStrike == 3)
         {
             cout << " 모든 숫자를 맞췄습니다" << endl;
+            break;
         }
         else
         {
