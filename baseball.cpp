@@ -55,7 +55,7 @@ int main(){
             cout << "0보다 작거나 9보다 큰 수를 입력할 수 없습니다";
             continue;
         }
-
+// 이 부분이 가장 중요함!! 매 시도 때마다 초기화되야한다.
         iStrike = iBall = 0;
 
         for(int i = 0; i < 3; ++i){
